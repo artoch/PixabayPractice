@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorPrimaryDark">@color/seconndary_color</item>
+        <item name="colorAccent">@color/primary_color</item>
+    </style>
+
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="MyTheme.DayNight.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="MyTheme.DayNight.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="circleImageView" parent="">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="circleLittleCorners" parent="">
+        <item name="cornerSize">10%</item>
+    </style>
+
+    <style name="roundedImageView" parent="">
+        <item name="cornerSizeTopRight">30dp</item>
+        <item name="cornerSizeTopLeft">30dp</item>
+    </style>
+
+    <style name="AppBottomSheetDialogTheme" parent="Theme.MaterialComponents.DayNight.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="AppModalStyle" parent="AppTheme">
+        <item name="android:background">@drawable/foot_picture</item>
+        <item name="behavior_peekHeight">400dp</item>
+    </style>
+
+    <style name="ButtonIconCenter" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">0dp</item>
+    </style>
+
+
+</resources>

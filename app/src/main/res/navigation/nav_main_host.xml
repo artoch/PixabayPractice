@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main_host"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/pixMainFragment"
+        android:name="com.atsapp.pixabaytestapp.ui.fragments.PixMainFragment"
+        android:label="fragment_pix_main"
+        tools:layout="@layout/fragment_pix_main" >
+        <action
+            android:id="@+id/action_pixMainFragment_to_detailPictureFragment"
+            app:destination="@id/detailPictureFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.atsapp.pixabaytestapp.ui.fragments.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_pixMainFragment"
+            app:destination="@id/pixMainFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailPictureFragment"
+        android:name="com.atsapp.pixabaytestapp.ui.fragments.DetailPictureFragment"
+        android:label="DetailPictureFragment">
+
+        <argument
+            android:name="hit"
+            app:nullable="true"
+            app:argType="com.atsapp.pixabaytestapp.data.models.Hit"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+
+</navigation>
