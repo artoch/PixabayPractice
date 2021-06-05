@@ -4,7 +4,17 @@ package com.atsapp.pixabaytestapp.utils
 class Const {
 
     companion object {
+        val PREFERENCE_NAME = "USER_DATA"
         val API_URL = "https://pixabay.com/api/"
         val API_KEY = "YOUR-APIKEY"
+    }
+
+    class LocalData {
+        companion object{
+            val LAST_QUERY = "query"
+            val LAST_LANG = "lang"
+            val LAST_CATEGORY = "category"
+        }
+
     }
 }

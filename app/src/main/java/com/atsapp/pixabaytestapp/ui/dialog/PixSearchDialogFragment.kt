@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView.OnEditorActionListener
 import androidx.lifecycle.ViewModelProvider
+import com.atsapp.pixabaytestapp.BaseApp
+import com.atsapp.pixabaytestapp.BaseApp.Companion.sessionManager
 import com.atsapp.pixabaytestapp.R
 import com.atsapp.pixabaytestapp.aux_interface.view_.SetupView
 import com.atsapp.pixabaytestapp.databinding.DialogFragmentPixSearchBinding
@@ -55,6 +57,8 @@ class PixSearchDialogFragment(override val TAG: String = "") : BottomSheetDialog
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                     dismiss()
                     query = tvSearch.text.toString()
+                    sessionManager.setQuery(query)
+                    sessionManager.setCategory("")
                     vm.getAllPicture(query, lang = "es")
                     return@OnEditorActionListener true
                 }
@@ -75,6 +79,8 @@ class PixSearchDialogFragment(override val TAG: String = "") : BottomSheetDialog
                 btnSearch.id -> {//Boton de busqueda
                     dismiss()
                     query = tvSearch.text.toString()
+                    sessionManager.setQuery(query)
+                    sessionManager.setCategory("")
                     vm.getAllPicture(query, lang = "es")
                 }
             }

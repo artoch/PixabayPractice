@@ -98,7 +98,8 @@ class DetailPictureFragment(override val TAG: String = "DetailPictureFragment") 
         binding.apply {
             when(p0!!.id){
                 btnBack.id -> {
-                    view?.findNavController()?.popBackStack()
+                    val action = DetailPictureFragmentDirections.actionDetailPictureFragmentToPixMainFragment()
+                    view?.findNavController()?.navigate(action)
                 }
             }
         }

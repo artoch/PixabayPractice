@@ -40,7 +40,10 @@
         <argument
             android:name="hit"
             app:nullable="true"
-            app:argType="com.atsapp.pixabaytestapp.data.models.Hit"
+            app:argType="com.atsapp.pixabaytestapp.data.models.Hit" />
+        <action
+            android:id="@+id/action_detailPictureFragment_to_pixMainFragment"
+            app:destination="@id/pixMainFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_in_left"

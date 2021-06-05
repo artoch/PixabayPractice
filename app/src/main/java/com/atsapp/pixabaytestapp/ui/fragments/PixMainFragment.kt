@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import com.atsapp.pixabaytestapp.BaseApp.Companion.sessionManager
 import com.atsapp.pixabaytestapp.R
 import com.atsapp.pixabaytestapp.adapter.PictureAdapter
 import com.atsapp.pixabaytestapp.aux_interface.utils.AdapterOnClick
@@ -32,11 +33,13 @@ class PixMainFragment(override val TAG: String = "PixMainFragment") : Fragment()
     private lateinit var binding: FragmentPixMainBinding
     private lateinit var adapter: PictureAdapter
     private lateinit var dialog: PixSearchDialogFragment
-    private val toSpinner = arrayListOf("science", "education", "people", "feelings", "computer", "buildings")
+    private val toSpinner = arrayListOf("categories:","science", "education", "people", "feelings", "computer", "buildings")
 
     private val vm by lazy {
         ViewModelProvider(requireActivity()).get(MainActivityViewModel::class.java)
     }
+
+    var check = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -62,11 +65,12 @@ class PixMainFragment(override val TAG: String = "PixMainFragment") : Fragment()
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.apply {
             spnItemQuestionNew.adapter = arrayAdapter
+            spnItemQuestionNew.setSelection(arrayAdapter.getPosition(if (sessionManager.getCategory()=="") "categories:" else sessionManager.getCategory()), false)
             spnItemQuestionNew.onItemSelectedListener = this@PixMainFragment
+            check = 0
             rvPixImages.layoutManager = gridLayout(requireContext())
             fbtnSearch.setOnClickListener(this@PixMainFragment)
             btnFilter.setOnClickListener(this@PixMainFragment)
-
         }
 
     }
@@ -119,6 +123,7 @@ class PixMainFragment(override val TAG: String = "PixMainFragment") : Fragment()
                     initSearchDialog()
                 }
                 btnFilter.id -> {
+                    check = 1
                     spnItemQuestionNew.performClick()
                 }
             }
@@ -130,7 +135,10 @@ class PixMainFragment(override val TAG: String = "PixMainFragment") : Fragment()
     }
 
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-        vm.getAllPicture(category = toSpinner[p2])
+        if (p0?.getItemAtPosition(p2) != "categories:" && check> 0) {
+            sessionManager.setCategory(p0?.getItemAtPosition(p2).toString())
+            vm.getAllPicture(category = toSpinner[p2])
+        }
     }
 
     override fun adapterOnClick(item: Hit, pos: Int) {

@@ -5,7 +5,6 @@ import androidx.paging.PagedList
 import com.atsapp.pixabaytestapp.data.remote.api.PixabayApi
 import com.atsapp.pixabaytestapp.utils.Const
 import com.atsapp.pixabaytestapp.utils.Const.Companion.API_KEY
-import com.atsapp.pixabaytestapp.utils.Const.Companion.POST_PER_PAGE
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -100,14 +99,14 @@ object RetrofitModule {
     }
 
 
-    @Provides
-    @Singleton
-    fun pagingConfig(): PagedList.Config{
-        return PagedList.Config.Builder()
-            .setEnablePlaceholders(false)
-            .setPageSize(POST_PER_PAGE)
-            .build()
-    }
+//    @Provides
+//    @Singleton
+//    fun pagingConfig(): PagedList.Config{
+//        return PagedList.Config.Builder()
+//            .setEnablePlaceholders(false)
+//            .setPageSize(POST_PER_PAGE)
+//            .build()
+//    }
 
 
 }
