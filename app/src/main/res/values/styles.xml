@@ -41,6 +41,11 @@
         <item name="behavior_peekHeight">400dp</item>
     </style>
 
+    <style name="checkDialogAnimation">
+        <item name="android:windowEnterAnimation">@transition/slide_up</item>
+        <item name="android:windowExitAnimation">@transition/slide_down</item>
+    </style>
+
     <style name="ButtonIconCenter" parent="Widget.MaterialComponents.Button.TextButton">
         <item name="android:insetBottom">0dp</item>
         <item name="android:insetTop">0dp</item>

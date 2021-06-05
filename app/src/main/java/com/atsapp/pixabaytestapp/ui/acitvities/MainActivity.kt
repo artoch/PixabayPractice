@@ -6,6 +6,7 @@ import androidx.activity.viewModels
 import androidx.navigation.NavController
 import com.atsapp.pixabaytestapp.R
 import com.atsapp.pixabaytestapp.databinding.ActivityMainBinding
+import com.atsapp.pixabaytestapp.ui.dialog.PixExitDialog
 import com.atsapp.pixabaytestapp.ui.view_models.MainActivityViewModel
 import com.atsapp.pixabaytestapp.utils.getNavController
 import dagger.hilt.android.AndroidEntryPoint
@@ -16,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     private val vm: MainActivityViewModel by viewModels()
     private lateinit var navController: NavController
     private lateinit var binding : ActivityMainBinding
+    private lateinit var dialog : PixExitDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +28,19 @@ class MainActivity : AppCompatActivity() {
         binding.apply {
             navController = getNavController(binding.navHostFragmentContainer.id)
         }
+    }
 
+    override fun onBackPressed() {
+        if (::dialog.isInitialized){
+            if (dialog.isVisible){
+                return
+            }else{
+                dialog.show(supportFragmentManager, "SHOW")
+            }
+        }else{
+            dialog = PixExitDialog()
+            dialog.isCancelable = false
+            dialog.show(supportFragmentManager, "SHOW")
+        }
     }
 }

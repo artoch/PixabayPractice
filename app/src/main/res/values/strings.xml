@@ -6,6 +6,9 @@
     <string name="informaci_n">Información</string>
     <string name="views">Views</string>
     <string name="downloads">Downloads</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="seguro_quieres_salir_de_la_app">Seguro quieres salir de la app?</string>
 
     <string-array name="category">
         <item>science</item>
