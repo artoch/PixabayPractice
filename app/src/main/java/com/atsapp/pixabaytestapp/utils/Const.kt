@@ -6,7 +6,7 @@ class Const {
     companion object {
         val PREFERENCE_NAME = "USER_DATA"
         val API_URL = "https://pixabay.com/api/"
-        val API_KEY = "YOUR-APIKEY"
+        val API_KEY = "YOU-APIKEY"
     }
 
     class LocalData {
@@ -15,6 +15,5 @@ class Const {
             val LAST_LANG = "lang"
             val LAST_CATEGORY = "category"
         }
-
     }
 }
